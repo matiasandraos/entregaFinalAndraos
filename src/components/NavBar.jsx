@@ -31,7 +31,7 @@ const navBar = () => {
       </Menu>
       <Spacer />
       <Box p="4" bg="black" color="white">
-         <CarWidget />
+        <CarWidget/>
       </Box>
      
     </Flex>
