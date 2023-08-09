@@ -1,13 +1,14 @@
 import { PlusSquareIcon } from '@chakra-ui/icons'
 import { Box, Flex, Spacer } from '@chakra-ui/react'
 import React from 'react'
+import shoppingCart from '../assets/carrito-de-compras.png/'
 
 const CarWidget = () => {
   return (
     <Flex>
         
         <Box>
-            <PlusSquareIcon/>
+            <img src={shoppingCart} alt="" width='50px' height='50px' />
         </Box>
         <Box>
         3
