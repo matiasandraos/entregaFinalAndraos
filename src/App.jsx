@@ -1,43 +1,47 @@
 import React from 'react'
+import {useEffect, useState} from 'react'
 import NavBar from './components/navBar'
-import ItemListContainer from './components/ItemListContainer'
+import ItemListContainer from './components/itemContainers/ItemListContainer'
+import Item from './components/itemContainers/item'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import UseEffect from './components/UseEffect'
-import Actividad from './components/Actividad'
+import ItemDetailContainer from './components/itemDetailContainer/ItemDetailContainer'
+import Home from './components/Home'
+import About from './components/About.jsx'
+import Contact from './components/Contact'
+import Cart from './components/Cart'
 
+import ItemDetail from './components/itemDetailContainer/ItemDetail'
 
+//minuto 37 aprox para retomar, estoy colocando la rutas para poder implementar routing en mi proyecto
 const App = () => {
-  //promise 
-
-  const aplicarDescuento = new Promise((resolve, reject) => {
-    const descuento = true;
-
-    if (descuento) {
-      resolve('descuento aplicado');
-    } else {
-      reject('no se pudo aplicar el descuento');
-    }
-  });
-  console.log(aplicarDescuento);
-
-  aplicarDescuento
-  .then ((resultado)=>{
-   console.log(resultado);
-  })
-  .catch((error)=>{
-    console.log(first);
-  })
-
+  
   return (
-    <>
+    <BrowserRouter>
     <NavBar/>
-    <ItemListContainer
-    greeting='Bienvenidos a mi tienda'
-    />
-    <UseEffect/>
-    <Actividad/>
+
+
+
+
+<Routes>
+ 
+<Route exact path="/" element={<ItemListContainer/>}/>
+<Route exact path="/about" element={<About />}/>
+<Route exact path="/contact" element={<Contact/>}/>
+<Route exact path="/cart" element={<Cart/>}  />  
+
+<Route exact path="/categoria/:id" element={<ItemListContainer/>}/>  
+<Route exact path="/item/:id" element={<ItemDetailContainer/>}/>  
+
+{/* <Route exact path="/itemDetailContainer/itemDetail/:id" element={<ItemDetail/>}/> */}
+</Routes>
+  
     
-    </>
+
+
+
+
+    </BrowserRouter>
   )
 }
 

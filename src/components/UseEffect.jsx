@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import { Card, CardBody,  CardFooter,  ButtonGroup, Stack, Heading, Text, Divider, Button, Image, Flex, Box, Spacer} from '@chakra-ui/react'
-const UseEffect = () => {
-    const [mensaje, setMensaje]= useState('mensaje inicial')
+const UseEffect = ({nombre, details, precio}) => {
+    
     const [contador, setContador]= useState(0)
     useEffect(()=>{
     
@@ -25,11 +25,9 @@ const UseEffect = () => {
   return (
 
   
-    <div>
+    <>
        
-        <p> {mensaje}</p>
-        <button onClick={()=>setMensaje("mensaje cambiado")}>Cambiar</button>
-      
+     
         <Card maxW='sm'>
   <CardBody>
     <Image
@@ -38,14 +36,12 @@ const UseEffect = () => {
       borderRadius='lg'
     />
     <Stack mt='6' spacing='3'>
-      <Heading size='md'>Living room Sofa</Heading>
+      <Heading size='md'>{nombre}</Heading>
       <Text>
-        This sofa is perfect for modern tropical spaces, baroque inspired
-        spaces, earthy toned spaces and for people who love a chic design with a
-        sprinkle of vintage design.
+        {details}
       </Text>
       <Text color='blue.600' fontSize='2xl'>
-        $450
+        {precio}
       </Text>
     </Stack>
   </CardBody>
@@ -77,7 +73,7 @@ const UseEffect = () => {
 </Card>
 
 
-        </div>
+        </>
   )
 }
 

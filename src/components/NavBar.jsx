@@ -11,27 +11,58 @@ import {
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import CarWidget from "./CarWidget";
+import { Link, useParams } from "react-router-dom";
+
 
 const navBar = () => {
+  const {categoria} = useParams()
+  console.log(categoria);
+
   return (
     <Flex>
       <Box p="4" bg="black" color="white">
-        Nails
+        <Link to={"/"}>
+          Nails
+        <img src="" alt="" />
+        </Link>
+       
       </Box>
       <Spacer /> 
       <Menu>
+       
         <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
           Menu
         </MenuButton>
+
         <MenuList>
-          <MenuItem>Categoria A</MenuItem>
-          <MenuItem>Categoria B</MenuItem>
-          <MenuItem>Categoria C</MenuItem>
+        
+          <MenuItem>
+          <Link to={`/categoria/${'categoriaA'}`}>
+          Categoria A
+          </Link>
+          </MenuItem>
+
+          <MenuItem>
+          <Link to={`/categoria/${'categoriaB'}`}> 
+          Categoria B
+          </Link>
+          </MenuItem>
+
+          <MenuItem>
+          <Link to={`/categoria/${'categoriaC'}`}>
+          Categoria C
+          </Link>
+         </MenuItem>
+
         </MenuList>
+
       </Menu>
       <Spacer />
       <Box p="4" bg="black" color="white">
-        <CarWidget/>
+        <Link to={"/cart"}>
+            <CarWidget/>
+        </Link>
+    
       </Box>
      
     </Flex>
