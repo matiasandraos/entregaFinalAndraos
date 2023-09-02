@@ -7,62 +7,62 @@ import { useParams } from 'react-router-dom'
 const ItemListContainer = () => {
   
   const {categoria} = useParams()
-  console.log(categoria);
+  
 
   const productos = [
     { id:1,
       nombre: "mate torpedo",
       description: "",
      precio:1000,
-     categoria:"A",
+     categoria:"cat1",
      stock: 10},
     { id:2,
       nombre: "mate camionero",
       description: "",
      precio:1500,
-     categoria:"A",
+     categoria:"cat1",
      stock: 15},
     { id:3,
       nombre: "mate imperial",
       description: "",
      precio:2000,
-     categoria:"A",
+     categoria:"cat1",
      stock: 5},
      { id:4,
       nombre: "mate torpedo",
       description: "",
      precio:1000,
-     categoria:"B",
+     categoria:"cat2",
      stock: 10},
     { id:5,
       nombre: "mate camionero",
       description: "",
      precio:1500,
-     categoria:"B",
+     categoria:"cat2",
      stock: 15},
     { id:6,
       nombre: "mate imperial",
       description: "",
      precio:2000,
-     categoria:"B",
+     categoria:"cat2",
      stock: 5},
      { id:7,
       nombre: "mate torpedo",
       description: "",
      precio:1000,
-     categoria:"C",
+     categoria:"cat3",
      stock: 10},
     { id:8,
       nombre: "mate camionero",
       description: "",
      precio:1500,
-     categoria:"C",
+     categoria:"cat3",
      stock: 15},
     { id:9,
       nombre: "mate imperial",
       description: "",
      precio:2000,
-     categoria:"C",
+     categoria:"cat3",
      stock: 5}
 ]
 
@@ -79,21 +79,24 @@ return new Promise((resolve, reject)=>{
 
 getProducts ()
   .then((res)=>{
-    console.log(res);
+    
   } )
   .catch ((error)=>{
     console.log(error);
   })
 
 
-
+const filteredProducts = productos.filter ((producto)=> producto.categoria === categoria)
 
   return (
     <>
      
     <Flex>
-      <ItemList productos = {productos}/>
-     
+      <ItemList productos = {filteredProducts}/>
+      <div>
+          { categoria ? <ItemList productos = {filteredProducts}/> : <ItemList productos={productos}/> }
+      </div>
+    
     </Flex>
     
     </>

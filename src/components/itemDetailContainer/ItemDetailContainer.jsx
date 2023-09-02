@@ -9,9 +9,8 @@ import { useParams } from 'react-router-dom'
  
 const ItemDetailContainer = () => {
   
-   const {id}=useParams()
-   const [selectedProduct, setSelectedProduct]=useState(null)
 
+   
 const productos = [
   { id:1,
     nombre: "mate torpedo",
@@ -69,34 +68,31 @@ const productos = [
    stock: 5}
 ]
 
+
 const getProducts = () => {
-return new Promise((resolve, reject)=>{
-if(productos.length >0){
-  setTimeout(()=>{
-    resolve (productos)
-  }, )
-} else {
-  reject (new error ("No hay datos"))
-}
-})}
-
-useEffect(() => {
-  getProducts()
-    .then((products) => {
-      const product = products.find((p) => p.id === Number(id));
-      setSelectedProduct(product);
-    })
-    .catch((error) => {
+  return new Promise((resolve, reject)=>{
+    if(productos.length >0){
+      setTimeout(()=>{
+        resolve (productos)
+      }, [])
+    } else {
+      reject (new error ("No hay datos"))
+    }
+  })}
+  
+  getProducts ()
+    .then((res)=>{
+      console.log(res);
+    } )
+    .catch ((error)=>{
       console.log(error);
-    });
-}, [id]);
-
+    })
 
     
   return (
-    <>
+    <> 
 
-{/*     {selectedProduct && <ItemDetail producto={selectedProduct}/>} */}
+
       <ItemDetail productos={productos}/>
     </>
   )

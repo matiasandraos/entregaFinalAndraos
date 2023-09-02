@@ -17,7 +17,8 @@ import { Link, useParams } from "react-router-dom";
 const navBar = () => {
   const {categoria} = useParams()
   console.log(categoria);
-
+  
+  
   return (
     <Flex>
       <Box p="4" bg="black" color="white">
@@ -37,19 +38,19 @@ const navBar = () => {
         <MenuList>
         
           <MenuItem>
-          <Link to={`/categoria/${'categoriaA'}`}>
+          <Link to={`/categoria/${'cat1'}`}>
           Categoria A
           </Link>
           </MenuItem>
 
           <MenuItem>
-          <Link to={`/categoria/${'categoriaB'}`}> 
+          <Link to={`/categoria/${'cat2'}`}> 
           Categoria B
           </Link>
           </MenuItem>
 
           <MenuItem>
-          <Link to={`/categoria/${'categoriaC'}`}>
+          <Link to={`/categoria/${'cat3'}`}>
           Categoria C
           </Link>
          </MenuItem>

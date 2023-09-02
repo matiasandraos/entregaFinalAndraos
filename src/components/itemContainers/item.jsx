@@ -5,6 +5,8 @@ const item = ({
   id, 
     nombre, 
     precio, 
+    description,
+    categoria,
     stock
 }) => {
   console.log(id);
@@ -16,7 +18,8 @@ const item = ({
       <Heading size='md'> {nombre} </Heading>
     </CardHeader>
     <CardBody>
-      <Text>{precio}</Text>
+      <Text>{description}</Text>
+      <Text>{categoria}</Text>
     </CardBody>
     <CardFooter>
       <Link to={`/item/${id}`}>

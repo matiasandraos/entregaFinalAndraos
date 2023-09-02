@@ -10,6 +10,8 @@ const itemList = ({productos}) => {
                 key={p.id}
                     id={p.id}
                     nombre={p.nombre}
+                    description={p.description}
+                    categoria={p.categoria}
                     precio={p.precio}
                     stock = {p.stock}
                     />

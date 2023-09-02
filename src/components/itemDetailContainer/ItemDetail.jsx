@@ -3,17 +3,18 @@ import { Card, CardBody, CardFooter, Text, Heading, Stack, Image,Divider, Button
 import { useParams } from 'react-router-dom'
 
 const ItemDetail = ({productos}) => {
-
-
  
+    const {id}=useParams()
+
+    const filteredProducts= productos.filter ((producto)=>producto.id == id)
+
 
   return (
     
     <>
-
-
-
-        <div key={productos.id}>
+    {filteredProducts.map((p)=>{
+      return (
+         <div key={p.id} id={p.id}>
           <Card maxW='sm'>
             <CardBody>
               <Image
@@ -22,13 +23,13 @@ const ItemDetail = ({productos}) => {
                 borderRadius='lg'
               />
               <Stack mt='6' spacing='3'>
-                <Heading size='md'>{productos.nombre}</Heading>
-                <Text>{productos.description}</Text>
+                <Heading size='md'>{p.nombre}</Heading>
+                <Text>{p.description}</Text>
                 <Text color='blue.600' fontSize='2xl'>
-                  {productos.precio}
+                  {p.precio}
                 </Text>
               </Stack>
-            </CardBody>
+            </CardBody> 
             <Divider />
             <CardFooter>
               <ButtonGroup spacing='2'>
@@ -42,6 +43,11 @@ const ItemDetail = ({productos}) => {
             </CardFooter>
           </Card>
         </div>
+      )
+    })}
+
+
+       
       
 
     </>
