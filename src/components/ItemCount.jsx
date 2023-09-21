@@ -1,9 +1,11 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
+import ItemDetail from './itemDetailContainer/ItemDetail'
 
 const ItemCount = () => {
     const [mensaje, setMensaje]= useState('mensaje inicial')
     const [contador, setContador]= useState(0)
+    
     useEffect(()=>{
     
         console.log("efecto secundario");
@@ -27,7 +29,7 @@ const ItemCount = () => {
     return (
     <>
     
-
+        <ItemDetail sumar={sumar} restar={restar} reset={reset}/>
 
     </>
   )

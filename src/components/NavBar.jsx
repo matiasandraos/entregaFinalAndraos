@@ -18,7 +18,7 @@ const navBar = () => {
   const {categoria} = useParams()
   console.log(categoria);
   
-  
+
   return (
     <Flex>
       <Box p="4" bg="black" color="white">
@@ -45,7 +45,7 @@ const navBar = () => {
 
           <MenuItem>
           <Link to={`/categoria/${'cat2'}`}> 
-          Categoria B
+          Categoria B 
           </Link>
           </MenuItem>
 

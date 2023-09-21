@@ -1,10 +1,36 @@
 import React from 'react'
 import { Card, CardBody, CardFooter, Text, Heading, Stack, Image,Divider, Button, ButtonGroup } from '@chakra-ui/react'
 import { useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 const ItemDetail = ({productos}) => {
  
-    const {id}=useParams()
+  const [contador, setContador]= useState(0)
+    
+    useEffect(()=>{
+    
+        console.log("efecto secundario");
+    },[contador])
+
+    const sumar =()=>{
+      setContador(contador+1)
+  }
+
+  const restar =()=>{
+      if (contador != 0){
+          setContador(contador - 1)
+      } else
+      setContador (contador - 0)
+  }  
+  
+  const reset =()=>{
+      setContador (0)
+  }
+
+    
+  
+  
+  const {id}=useParams()
 
     const filteredProducts= productos.filter ((producto)=>producto.id == id)
 
@@ -33,9 +59,22 @@ const ItemDetail = ({productos}) => {
             <Divider />
             <CardFooter>
               <ButtonGroup spacing='2'>
+                
+                <Button onClick={restar} variant='solid' colorScheme='blue'>
+                  -
+                </Button>
+                <Button variant='solid' colorScheme='blue'>
+                  {contador}
+                </Button>
+                <Button onClick={sumar} variant='solid' colorScheme='blue'>
+                +
+                </Button>
+                
+                
                 <Button variant='solid' colorScheme='blue'>
                   Buy now
-                </Button>
+                 </Button>  
+
                 <Button variant='ghost' colorScheme='blue'>
                   Add to cart
                 </Button>
@@ -54,4 +93,4 @@ const ItemDetail = ({productos}) => {
   )
 }
 
-export default ItemDetail
+export default React.memo(ItemDetail)
